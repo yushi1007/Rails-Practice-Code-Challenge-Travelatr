@@ -1,0 +1,10 @@
+<h1><%= @post.title%></h1>
+By <%= @post.blogger.name%>
+- <%= @post.likes%> Likes - 
+<%= @post.destination.name %>,
+<%= @post.destination.country %>
+<p><%= @post.content%></p>
+
+<%= button_to "Delete this post", @post, :method => :delete%>
+<%= button_to "Edit this post", edit_post_path(@post), :method => :get %>
+<%= button_to "Go back", posts_path(), :method => :get %>
