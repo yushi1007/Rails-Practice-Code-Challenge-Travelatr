@@ -1,2 +1,29 @@
 <h2> <%= @destination.name %> </h2>
 <p> country: <%= @destination.country %> </p>
+<% unless !@posts.empty? %>
+<p> Here are the most recent post: </p>
+<ul>
+<% @posts.each do |post| %>
+    <li> <%= link_to post.title, post %></li>
+    <% end %>
+</ul>
+<p> This is the most liked post: </p>
+<ul>
+    <li> <%= link_to @featured.title, @featured %></li>
+</ul>
+<p> The average blogger age is: </p>
+<ul>
+    <li> <%= link_to @average_age %></li>
+</ul>
+<% else %>
+<p> This destination has not yet been talked about! </p>
+<% end %>
+
+<!--<h2>Most Recent Posts</h2>
+<p><%= @destination.most_recent_posts %></p>
+<h2>Featured Post(Most Likes)</h2>
+<p><%=@destination.most_liked%></p>
+<h2>Average Blogger Age</h2>
+<p><%=@destination.average_blogger_age%></p>-->
+
+<%= button_to "Go back", destinations_path(), :method => :get %>

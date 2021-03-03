@@ -1,5 +1,18 @@
 <h1> <%= @blogger.name %> </h1>
 <p> age: <%= @blogger.age %> </p>
-<p>bio: <%= @blogger.bio %></p>
+<p> bio: <%= @blogger.bio %></p>
+
+<h2>Total Likes on All Posts</h2>
+<p><%= @blogger.total_likes %></p>
+<h2>Featured Post(Most Likes)</h2>
+<p><%=@blogger.most_liked_post%></p>
 
 
+<h2>List of <%=@blogger.name%> Destinations </h2>
+    <% @blogger.destinations.each do |destination| %>
+<li><%= destination.name %></li>
+
+<% end %>
+
+
+<%= button_to "Go back", bloggers_path(), :method => :get %>

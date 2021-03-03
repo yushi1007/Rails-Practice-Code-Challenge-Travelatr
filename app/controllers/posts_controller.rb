@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   def create
     post_params = params.require(:post).permit(:title, :content, :likes, :blogger_id, :destination_id)
     @post = Post.create(post_params)
-    redirect_to new_post_path
+    redirect_to new_post_path(@post)
   end
 
   def show
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     Post.destroy(params[:id])
-    redirect_to post_path
+    redirect_to posts_path
   end
 end
 
